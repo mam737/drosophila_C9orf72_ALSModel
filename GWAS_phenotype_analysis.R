@@ -7,7 +7,6 @@
 
 # ran files through Plink with filtering to get SNPs
 # gives dgrp2.traw file
-# dgrp2.traw file uploaded to GitHub
 /programs/plink-1.9-x86_64-beta3.46/plink --bfile dgrp2 --maf 0.05 --geno 0.2 --indep-pairwise 50 5
 0.5 --out gwas_plink
 
