@@ -96,6 +96,11 @@ def align_reads(directory_in,directory_out):
 		for filename in os.listdir(directory_in):
 			os.system('/programs/STAR-2.5.2b/bin/Linux_x86_64/STAR --genomeDir ./ref_seq/STARindex/ --readFilesIn ' + directory_in + filename + ' --runThreadN 12 --outFileNamePrefix ' + directory_out + filename.split('.')[0] + ' --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts')
 
+def bam_index(directory_in):
+	for filename in os.listdir(directory_in):
+		if filename.endswith('.bam'):
+			os.system('/programs/samtools-1.9/bin/samtools index -b ' + directory_in + filename)
+
 #HTSEQ-Count Manual Page: http://htseq.readthedocs.io/en/master/count.html
 def get_counts(directory_in,directory_out):
 	if not os.path.exists(directory_out):
